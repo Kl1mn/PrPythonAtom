@@ -69,4 +69,4 @@ class FileWriter:
     def load_file_writer(cls, pickle_file):
         f = open(pickle_file, 'rb')
         path = pkl.load(f)
-        return FileWriter(path)
+        return cls(path)
