@@ -16,11 +16,7 @@ class FileWriter:
         return os.path.isdir(os.path.dirname(path))
 
     def __enter__(self):
-        if os.path.exists(self._path):
-            self._file = open(self._path, 'a')
-        else:
-            self._file = open(self._path, 'w')
-        return self._file
+        self._file = open(self._path, 'a')
 
     def __exit__(self, exc_type, exc_value, traceback):
         self._file.close()
@@ -41,7 +37,7 @@ class FileWriter:
         self._path = ''
     
     def print_file(self):
-        with open(self._path, 'r') as self._filej:
+        with open(self._path, 'r') as self._file:
             print(self._file.read())
     
     def write(self, some_string):
